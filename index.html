@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujan S | Portfolio</title>
+    <meta name="description" content="Portfolio of Sujan S - Computer Science Undergraduate, GenAI Enthusiast, and Cybersecurity Specialist from Chennai, India">
+    <meta name="keywords" content="Sujan S, Computer Science, GenAI, Cybersecurity, Full Stack Developer, Chennai">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="icons/dragon.png" alt="Sujan S" class="nav-avatar" style="height:80px; width:120px; border-radius:50%;">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#social" class="nav-link">Follow Me</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-indicator" id="theme-indicator">
+                <span id="theme-text">Light Theme</span>
+                <span id="utc-time"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div class="hero-avatar">
+                    <div class="avatar-placeholder">🕶️</div>
+                </div>
+                <h1 class="hero-name">Sujan S</h1>
+                <p class="hero-title">Computer Science Undergraduate | GenAI & Cybersecurity Enthusiast</p>
+
+                <div class="hero-contact">
+                    <a href="mailto:sujans1411@gmail.com" class="contact-link">
+                        ✉️ sujans1411@gmail.com
+                    </a>
+                    <a href="tel:+918015139701" class="contact-link">
+                        📞 +91 8015139701
+                    </a>
+                </div>
+
+                <div class="hero-links">
+                    <a href="#projects" class="btn btn--primary">View My Work</a>
+                    <button id="view-resume-btn" class="btn btn--secondary">View Resume</button>
+                    <a href="#contact" class="btn btn--outline">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="resume-modal hidden">
+        <div class="resume-modal-overlay"></div>
+        <div class="resume-modal-content">
+            <div class="resume-modal-header">
+                <h2>Resume - Sujan S</h2>
+                <button id="resume-modal-close" class="resume-modal-close">&times;</button>
+            </div>
+            <div class="resume-modal-body">
+                <div class="resume-content">
+                    <div class="resume-header">
+                        <h1>Sujan S</h1>
+                        <div class="resume-contact">
+                            <p>📍 Chennai, India</p>
+                            <p>📞 +91 8015139701</p>
+                            <p>✉️ sujans1411@gmail.com</p>
+                            <p>🔗 github.com/wolfieexd</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Professional Summary</h3>
+                        <p>Computer Science undergraduate at the SRM Institute of Science and Technology with hands-on experience in AI, prompt engineering, and cybersecurity. Interested in full-stack development, GenAI tools, and workflow automation using Copilot Studio and Power Automate. Passionate about building scalable and secure digital products with modern frameworks. Proven leadership in hackathons and project teams.</p>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Experience</h3>
+                        <div class="resume-item">
+                            <h4>Project Intern</h4>
+                            <p class="resume-company">Larsen & Toubro Construction, Chennai</p>
+                            <p class="resume-duration">Jun 2025 – July 2025</p>
+                            <ul>
+                                <li>Engineered GenAI-driven automation workflows using Copilot Studio and Power Automate for improved internal operations.</li>
+                                <li>Created and evaluated AI prompts with LLMs like ChatGPT and GitHub Copilot to automate technical documentation, email generation, and chatbot interactions.</li>
+                            </ul>
+                        </div>
+
+                        <div class="resume-item">
+                            <h4>Artificial Intelligence Intern</h4>
+                            <p class="resume-company">Edunet Foundation (Virtual)</p>
+                            <p class="resume-duration">May 2025 – Jun 2025</p>
+                            <ul>
+                                <li>Developed AI models in Python for real-world applications, including classification and prediction tasks.</li>
+                                <li>Collaborated on a virtual team to build AI prototypes with automation integration.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Education</h3>
+                        <div class="resume-item">
+                            <h4>B.Tech in Computer Science & Engineering</h4>
+                            <p class="resume-company">SRM IST – Ramapuram Campus, Chennai</p>
+                            <p class="resume-duration">2023 – 2027</p>
+                            <p><strong>CGPA: 8.59 / 10</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Technical Skills</h3>
+                        <div class="resume-skills">
+                            <p><strong>Languages:</strong> Python, JavaScript, Java, C, C++, HTML, CSS</p>
+                            <p><strong>AI and GenAI Tools:</strong> GitHub Copilot, ChatGPT, Prompt Engineering</p>
+                            <p><strong>Automation:</strong> Power Automate, Copilot Studio, Google ADK</p>
+                            <p><strong>Security:</strong> Wi-Fi PenTesting, Ethical Hacking</p>
+                            <p><strong>Design and Development:</strong> UI/UX design, frontend development, GitHub, VS Code</p>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Technical Projects</h3>
+                        <ul>
+                            <li><strong>Wi-Fi Penetration Testing Tool</strong> – Python tool simulating network vulnerabilities (Feb 2025–Present)</li>
+                            <li><strong>Cooking Recipe DBMS</strong> – MySQL-based recipe manager with CRUD (Jan 2025–Apr 2025)</li>
+                            <li><strong>Nutri-Fit Web App</strong> – React/Node.js-based fitness tracker (Oct 2024–Feb 2025)</li>
+                            <li><strong>AI-Powered Target Recognition</strong> – YOLOv5 object detection system (Nov 2024–Jan 2025)</li>
+                            <li><strong>Image Encryption Tool</strong> – Python-based secure image sharing (Sep 2024–Dec 2024)</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Certifications & Trainings</h3>
+                        <ul>
+                            <li>UI/UX Design Webinar – GUVI-HCL (Apr 2025)</li>
+                            <li>Cyber Security with CTF Challenge – IIT Madras / Techobytes (Feb 2025)</li>
+                            <li>Oracle Java Foundations – Oracle (Oct 2024)</li>
+                            <li>Computer Networking – GUVI-HCL (Mar 2024)</li>
+                            <li>Python Essentials 1 (PCAP) – Cisco Networking Academy (Nov 2023)</li>
+                            <li>Ethical Hacking for Beginners – GUVI-HCL (Jul 2023)</li>
+                            <li>Dark Web Fundamentals – GUVI-HCL (Mar 2023)</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Achievements</h3>
+                        <ul>
+                            <li>Two-time Gold Medalist – Unified Cyber Olympiad (UCO)</li>
+                            <li>Scored 95.2492739 percentile in JEE Mains 2023</li>
+                            <li>Secured an all-India rank of 1527 in SRMJEEE 2023</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-section">
+                        <h3>Extracurricular Activities</h3>
+                        <ul>
+                            <li>Environmental volunteer – Green Voice NGO, Chennai (Jun 2025)</li>
+                            <li>Team leader for multiple university tech projects</li>
+                            <li>Active hackathon participant – Focused on AI, automation, and web</li>
+                            <li>Former captain, school sports club (2017–2021)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-modal-footer">
+                <a id="download-resume-btn" class="btn btn--primary" href="https://drive.google.com/file/d/1NgIw6y9TAh75oJUBKMFC49hWHbR6o_mS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    Download Resume
+                </a>
+                <button id="resume-modal-close-btn" class="btn btn--secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Currently pursuing B.Tech in Computer Science & Engineering (2023- Expected 2027) at SRM IST – Ramapuram Campus, Chennai.</p>
+
+                    <p>I'm passionate about Generative AI, cybersecurity, and full-stack development. My experience spans working with LLMs, building automation workflows, and developing secure applications that solve real-world problems.</p>
+
+                    <p>I thrive on exploring cutting-edge technologies and translating complex concepts into practical solutions. Whether it's designing AI-powered systems or conducting ethical hacking assessments, I approach every project with curiosity and precision.</p>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <h4>Education</h4>
+                        <div class="university">SRM IST – Ramapuram Campus, Chennai</div>
+                        <div class="duration">2023 – 2027</div>
+                        <div class="gpa">CGPA: 8.59 / 10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item card">
+                    <div class="card__body">
+                        <div class="experience-header">
+                            <h3>Project Intern</h3>
+                            <span class="duration">Jun 2025 – July 2025</span>
+                        </div>
+                        <div class="company">Larsen & Toubro Construction, Chennai</div>
+                        <div class="description">
+                            Engineered GenAI-driven automation workflows using Copilot Studio and Power Automate for improved internal operations. Created and evaluated AI prompts with LLMs like ChatGPT and GitHub Copilot to automate technical documentation, email generation, and chatbot interactions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item card">
+                    <div class="card__body">
+                        <div class="experience-header">
+                            <h3>Artificial Intelligence Intern</h3>
+                            <span class="duration">May 2025 – Jun 2025</span>
+                        </div>
+                        <div class="company">Edunet Foundation (Virtual)</div>
+                        <div class="description">
+                            Developed AI models in Python for real-world applications, including classification and prediction tasks. Collaborated on a virtual team to build AI prototypes with automation integration.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI & GenAI Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitHub Copilot</span>
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power Automate</span>
+                        <span class="skill-tag">Copilot Studio</span>
+                        <span class="skill-tag">Google ADK</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Security</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Wi-Fi PenTesting</span>
+                        <span class="skill-tag">Ethical Hacking</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Design & Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Frontend Development</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card card">
+                    <div class="card__body">
+                        <h3>Wi-Fi Penetration Testing Tool</h3>
+                        <div class="project-duration">Feb 2025–Present</div>
+                        <div class="project-description">
+                            Python-based network vulnerability simulator for ethical hacking and security assessment
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="card__body">
+                        <h3>AI-Powered Target Recognition</h3>
+                        <div class="project-duration">Nov 2024–Jan 2025</div>
+                        <div class="project-description">
+                            YOLOv8-powered weapon and threat detection system for security applications with real-time analysis
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">YOLOv8</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <button class="github-btn" onclick="window.open('https://github.com/wolfieexd/AI-powered-target-recognition-system', '_blank')">
+                            <span class="github-icon">⚡</span>
+                            View Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="card__body">
+                        <h3>Nutri-Fit Web App</h3>
+                        <div class="project-duration">Oct 2024–Feb 2025</div>
+                        <div class="project-description">
+                            Full-stack fitness tracker with nutrition monitoring, workout plans, and progress analytics
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <button class="github-btn" onclick="window.open('https://github.com/wolfieexd/Nutri-Fit', '_blank')">
+                            <span class="github-icon">⚡</span>
+                            View Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="card__body">
+                        <h3>Cooking Recipe DBMS</h3>
+                        <div class="project-duration">Jan 2025–Apr 2025</div>
+                        <div class="project-description">
+                            MySQL-powered recipe management system with full CRUD operations and ingredient tracking
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Database</span>
+                            <span class="tech-tag">CRUD</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <button class="github-btn" onclick="window.open('https://github.com/wolfieexd/Cooking-DBMS', '_blank')">
+                            <span class="github-icon">⚡</span>
+                            View Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="card__body">
+                        <h3>Image Encryption Tool</h3>
+                        <div class="project-duration">Sep 2024–Dec 2024</div>
+                        <div class="project-description">
+                            Secure image sharing solution with advanced encryption algorithms for privacy protection
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Encryption</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay">
+                        <button class="github-btn" onclick="window.open('https://github.com/wolfieexd/Image_Encryption', '_blank')">
+                            <span class="github-icon">⚡</span>
+                            View Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="achievements-content">
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🏆</div>
+                            <div>
+                                <h4>Two-time Gold Medalist</h4>
+                                <p>Unified Cyber Olympiad (UCO)</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">📊</div>
+                            <div>
+                                <h4>JEE Mains 2023</h4>
+                                <p>95.2492739 percentile</p>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🎯</div>
+                            <div>
+                                <h4>SRMJEEE 2023</h4>
+                                <p>All-India rank 1527</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certifications-section">
+                    <h3>Certifications & Trainings</h3>
+                    <div class="certification-list">
+                        <div class="certification-item">UI/UX Design Webinar – GUVI-HCL (Apr 2025)</div>
+                        <div class="certification-item">Cyber Security with CTF Challenge – IIT Madras / Techobytes (Feb 2025)</div>
+                        <div class="certification-item">Oracle Java Foundations – Oracle (Oct 2024)</div>
+                        <div class="certification-item">Computer Networking – GUVI-HCL (Mar 2024)</div>
+                        <div class="certification-item">Python Essentials 1 (PCAP) – Cisco Networking Academy (Nov 2023)</div>
+                        <div class="certification-item">Ethical Hacking for Beginners – GUVI-HCL (Jul 2023)</div>
+                        <div class="certification-item">Dark Web Fundamentals – GUVI-HCL (Mar 2023)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="section social-section">
+        <div class="container">
+            <h2 class="section-title">Connect With Me</h2>
+            <p class="social-subtitle">Let's connect and stay in touch across different platforms</p>
+
+            <div class="social-grid">
+                <a href="https://www.instagram.com/wolfiee_xd/" class="social-card instagram-card" target="_blank" rel="noopener noreferrer">
+                    <img src="icons/pngegg.png" alt="Instagram" width="36" height="36">
+                    <div class="social-content">
+                        <h3>Instagram</h3>
+                        <p class="social-handle">@wolfiee_xd</p>
+                        <p class="social-description">Follow my tech journey and daily updates</p>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <a href="https://github.com/wolfieexd" class="social-card github-card" target="_blank" rel="noopener noreferrer">
+                    <img src="icons/github.png" alt="GitHub" width="36" height="36">
+                    <div class="social-content">
+                        <h3>GitHub</h3>
+                        <p class="social-handle">wolfieexd</p>
+                        <p class="social-description">Explore my code and open-source projects</p>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/sujan-s-wolfieexd/" class="social-card linkedin-card" target="_blank" rel="noopener noreferrer">
+                    <img src="icons/linkedin.png" alt="LinkedIn" width="36" height="36">
+                    <div class="social-content">
+                        <h3>LinkedIn</h3>
+                        <p class="social-handle">sujan-s-wolfieexd</p>
+                        <p class="social-description">Connect for professional opportunities</p>
+                    </div>
+                    <div class="social-arrow">→</div>
+                </a>
+            </div>
+
+            <div class="social-cta">
+                <p>Follow me for the latest updates on my projects and tech insights!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Reach Me Out</h3>
+                    <p>Always open to exciting opportunities, cool projects in tech, GenAI, or just geeking out over cybersecurity. Let’s connect and build something awesome together!</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:sujans1411@gmail.com" class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <span>sujans1411@gmail.com</span>
+                        </a>
+
+                        <a href="tel:+918015139701" class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <span>+91 8015139701</span>
+                        </a>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <span>Chennai, Tamil Nadu, India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/xovldgwr" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sujan S. All rights reserved.</p>
+            <p>Built with passion for technology and innovation.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chatbot-toggle" class="chatbot-toggle">
+            <span class="chatbot-icon">🤖</span>
+            Chat with ALPHA
+        </button>
+
+        <div id="chatbot-window" class="chatbot-window hidden">
+            <div class="chatbot-header">
+                <div class="chatbot-info">
+                    <div class="chatbot-avatar">A</div>
+                    <div>
+                        <h4>ALPHA</h4>
+                        <div class="chatbot-status">Online</div>
+                    </div>
+                </div>
+                <button id="chatbot-close" class="chatbot-close">&times;</button>
+            </div>
+
+            <div id="chatbot-messages" class="chatbot-messages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me anything...">
+                <button id="chatbot-send" class="chatbot-send">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
