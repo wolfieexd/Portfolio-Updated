@@ -12,25 +12,55 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
+            <!-- Brand/Logo -->
             <div class="nav-brand">
-                <img src="icons/dragon.png" alt="Sujan S" class="nav-avatar" style="height:80px; width:120px; border-radius:50%;">
+                <a href="#home" class="brand-link">
+                    <span class="brand-text">Sujan S.</span>
+                </a>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#social" class="nav-link">Follow Me</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="theme-indicator" id="theme-indicator">
-                <span id="theme-text">Light Theme</span>
-                <span id="utc-time"></span>
+            
+            <!-- Desktop Navigation Menu -->
+            <div class="nav-menu-desktop">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Right side elements -->
+            <div class="nav-right">
+                <!-- Theme indicator (hidden on mobile) -->
+                <div class="theme-indicator">
+                    <span id="theme-text">Light Theme</span>
+                    <span id="utc-time">UTC: 00:00:00</span>
+                </div>
+                
+                <!-- Mobile menu toggle -->
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="nav-menu-mobile" id="nav-menu-mobile">
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-links">
+                    <li><a href="#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+                    <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                    <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                </ul>
             </div>
         </div>
     </nav>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero" style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
@@ -174,7 +204,7 @@
                 </div>
             </div>
             <div class="resume-modal-footer">
-                <a id="download-resume-btn" class="btn btn--primary" href="https://drive.google.com/file/d/1lowaa_HI7jnXwPd_J8si4ml7U7qoKkZc/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a id="download-resume-btn" class="btn btn--primary" href="https://drive.google.com/file/d/1NgIw6y9TAh75oJUBKMFC49hWHbR6o_mS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                     Download Resume
                 </a>
                 <button id="resume-modal-close-btn" class="btn btn--secondary">Close</button>
@@ -531,17 +561,17 @@
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
                             <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
-                    
+
                         <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
                     </form>
                 </div>
