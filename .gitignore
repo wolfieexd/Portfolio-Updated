@@ -19,6 +19,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -29,6 +30,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+vite-*.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -39,3 +41,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+vite.config.js
+vite.config.d.ts
+
+# local legacy/scratch files
+/legacy_v1
+/app.js
+/style.css
+/raw_ascii.txt
+/build_svg.py
+/convert.py
+/dragon-oneko.js
+/legacy_index.html
+/icons
+/assets/ascii-profile.svg
+/assets/dragonShadow.png
+/assets/dragonSprite.png
+/assets/sujan.txt

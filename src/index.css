@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Playbill';
+  src: local('Playbill'), local('PLAYBILL');
+}
+
+@layer base {
+  html {
+    background: #e6dfcc;
+  }
+
+  body {
+    @apply overflow-x-hidden font-serif antialiased;
+    min-width: 320px;
+    background:
+      radial-gradient(circle at center, rgba(230, 223, 204, 0.95), rgba(89, 58, 26, 0.42) 120%),
+      #9b865f;
+    color: #1a1a1a;
+  }
+
+  ::selection {
+    background: #1a1a1a;
+    color: #e6dfcc;
+  }
+
+  input,
+  textarea,
+  button,
+  a {
+    border-radius: 0;
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: #1a1a1a;
+    box-shadow: 0 0 0 1000px #e6dfcc inset;
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .ink-bleed {
+    text-shadow: none;
+  }
+
+  .letterpress {
+    text-shadow: none;
+  }
+
+  .printed-field {
+    background-image:
+      linear-gradient(rgba(26, 26, 26, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 26, 26, 0.05) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .paper-stains {
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(100, 54, 16, 0.22), transparent 17%),
+      radial-gradient(circle at 82% 28%, rgba(165, 42, 42, 0.12), transparent 14%),
+      radial-gradient(circle at 34% 78%, rgba(72, 38, 9, 0.2), transparent 18%),
+      radial-gradient(circle at 74% 86%, rgba(26, 26, 26, 0.11), transparent 12%);
+  }
+
+  .deckle {
+    clip-path: polygon(
+      0 0.7%,
+      2% 0,
+      7% 0.45%,
+      13% 0,
+      21% 0.55%,
+      29% 0,
+      37% 0.35%,
+      46% 0,
+      55% 0.5%,
+      66% 0,
+      78% 0.4%,
+      89% 0,
+      100% 0.6%,
+      99.4% 10%,
+      100% 20%,
+      99.2% 31%,
+      100% 43%,
+      99.5% 56%,
+      100% 70%,
+      99.1% 84%,
+      100% 100%,
+      88% 99.4%,
+      74% 100%,
+      62% 99.3%,
+      49% 100%,
+      37% 99.5%,
+      23% 100%,
+      11% 99.2%,
+      0 100%,
+      0.6% 88%,
+      0 72%,
+      0.7% 58%,
+      0 44%,
+      0.5% 30%,
+      0 15%
+    );
+  }
+
+  .ornament-rule {
+    position: relative;
+  }
+
+  .ornament-rule::before,
+  .ornament-rule::after {
+    color: #1a1a1a;
+    content: "*";
+    font-family: "Rye", serif;
+    font-size: 0.9em;
+    margin: 0 0.42em;
+  }
+
+  .wanted-cut {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(26, 26, 26, 0.88) 0 2px,
+        transparent 2px 8px
+      ),
+      #d8cdb2;
+  }
+
+  .broadsheet-divider {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .broadsheet-divider::before,
+  .broadsheet-divider::after {
+    background: repeating-linear-gradient(
+      90deg,
+      #1a1a1a 0 8px,
+      transparent 8px 13px
+    );
+    content: "";
+    height: 4px;
+    max-width: 18rem;
+    width: 32%;
+  }
+
+  .rubber-stamp {
+    align-items: center;
+    aspect-ratio: 1;
+    background:
+      repeating-linear-gradient(
+        -12deg,
+        rgba(165, 42, 42, 0.14) 0 1px,
+        transparent 1px 7px
+      );
+    border: 5px dashed #a52a2a;
+    border-radius: 9999px;
+    color: #a52a2a;
+    display: flex;
+    flex-direction: column;
+    font-family: "Rye", serif;
+    justify-content: center;
+    line-height: 0.9;
+    mix-blend-mode: multiply;
+    opacity: 0.88;
+    outline: 4px solid #a52a2a;
+    outline-offset: -13px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .rubber-stamp::before,
+  .rubber-stamp::after {
+    border: 2px solid #a52a2a;
+    border-radius: 9999px;
+    content: "";
+    inset: 10px;
+    opacity: 0.82;
+    position: absolute;
+  }
+
+  .rubber-stamp::after {
+    border-style: dotted;
+    inset: 20px;
+    opacity: 0.7;
+  }
+
+  .rubber-stamp span {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rubber-stamp__small {
+    font-family: "Courier Prime", monospace;
+    font-weight: 700;
+  }
+
+  .rubber-stamp__large {
+    border-bottom: 2px solid #a52a2a;
+    border-top: 2px solid #a52a2a;
+    margin: 0.18rem 0;
+    padding: 0.18rem 0.28rem;
+  }
+}
