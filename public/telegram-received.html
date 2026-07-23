@@ -55,7 +55,14 @@
         position: relative;
         width: min(70vw, 760px);
         border: 4px double #1a1a1a;
-        background: #e6dfcc;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(100, 54, 16, 0.18), transparent 18%),
+          radial-gradient(circle at 82% 28%, rgba(165, 42, 42, 0.1), transparent 15%),
+          radial-gradient(circle at 35% 82%, rgba(72, 38, 9, 0.16), transparent 19%),
+          linear-gradient(rgba(26, 26, 26, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(26, 26, 26, 0.035) 1px, transparent 1px),
+          #e6dfcc;
+        background-size: auto, auto, auto, 18px 18px, 18px 18px, auto;
         padding: clamp(1.5rem, 5vw, 4.5rem);
         text-align: center;
         box-shadow: 0 4px 0 #1a1a1a;
