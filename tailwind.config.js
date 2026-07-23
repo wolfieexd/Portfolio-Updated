@@ -18,6 +18,7 @@ export default {
         mono: ["Courier Prime", "monospace"],
         serif: ["Special Elite", "serif"],
         sans: ["Special Elite", "serif"],
+        handwriting: ["Cedarville Cursive", "cursive"],
       }
     },
   },

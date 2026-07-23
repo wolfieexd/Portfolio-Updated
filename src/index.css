@@ -52,6 +52,54 @@
 
   .ink-bleed {
     text-shadow: none;
+    filter: url(#woodblock-bleed);
+  }
+
+  .paper-crease-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    mix-blend-mode: multiply;
+    background: 
+      linear-gradient(to right, transparent 49.8%, rgba(26,26,26,0.06) 49.9%, rgba(255,255,255,0.12) 50%, rgba(26,26,26,0.06) 50.1%, transparent 50.2%),
+      linear-gradient(to bottom, transparent 33.1%, rgba(26,26,26,0.06) 33.2%, rgba(255,255,255,0.12) 33.3%, rgba(26,26,26,0.06) 33.4%, transparent 33.5%),
+      linear-gradient(to bottom, transparent 66.4%, rgba(26,26,26,0.06) 66.5%, rgba(255,255,255,0.12) 66.6%, rgba(26,26,26,0.06) 66.7%, transparent 66.8%);
+  }
+
+  .torn-bottom {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .torn-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 22px;
+    background-size: 22px 22px;
+    background-image: 
+      linear-gradient(135deg, #1a1a1a 25%, transparent 25%), 
+      linear-gradient(225deg, #1a1a1a 25%, transparent 25%);
+    background-position: center bottom;
+    z-index: 100;
+  }
+
+  .pencil-mark {
+    color: #4a4e59;
+    opacity: 0.75;
+    font-family: 'Cedarville Cursive', cursive;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .typewriter-ink {
+    filter: contrast(1.4) blur(0.2px);
+    text-shadow: 
+      0.5px 0.5px 0px rgba(26,26,26,0.5), 
+      -0.5px -0.2px 0px rgba(26,26,26,0.4);
+    letter-spacing: -0.5px;
   }
 
   .letterpress {
@@ -75,41 +123,10 @@
 
   .deckle {
     clip-path: polygon(
-      0 0.7%,
-      2% 0,
-      7% 0.45%,
-      13% 0,
-      21% 0.55%,
-      29% 0,
-      37% 0.35%,
-      46% 0,
-      55% 0.5%,
-      66% 0,
-      78% 0.4%,
-      89% 0,
-      100% 0.6%,
-      99.4% 10%,
-      100% 20%,
-      99.2% 31%,
-      100% 43%,
-      99.5% 56%,
-      100% 70%,
-      99.1% 84%,
-      100% 100%,
-      88% 99.4%,
-      74% 100%,
-      62% 99.3%,
-      49% 100%,
-      37% 99.5%,
-      23% 100%,
-      11% 99.2%,
-      0 100%,
-      0.6% 88%,
-      0 72%,
-      0.7% 58%,
-      0 44%,
-      0.5% 30%,
-      0 15%
+      0 0.7%, 2% 0, 7% 0.45%, 13% 0, 21% 0.55%, 29% 0, 37% 0.35%, 46% 0, 55% 0.5%, 66% 0, 78% 0.4%, 89% 0, 100% 0.6%, 
+      99.4% 10%, 100% 20%, 99.2% 31%, 100% 43%, 99.5% 56%, 100% 70%, 99.1% 84%, 100% calc(100% - 10px),  
+      94% 100%, 88% calc(100% - 35px), 82% 100%, 75% calc(100% - 15px), 68% 100%, 60% calc(100% - 40px), 52% 100%, 45% calc(100% - 25px), 38% 100%, 31% calc(100% - 45px), 24% 100%, 17% calc(100% - 20px), 10% 100%, 4% calc(100% - 30px), 0 100%, 
+      0.6% 88%, 0 72%, 0.7% 58%, 0 44%, 0.5% 30%, 0 15%
     );
   }
 
@@ -214,5 +231,22 @@
     border-top: 2px solid #a52a2a;
     margin: 0.18rem 0;
     padding: 0.18rem 0.28rem;
+  }
+
+  .redacted {
+    background-color: #1a1a1a;
+    color: transparent;
+    transition: all 0.8s ease;
+    cursor: url("/cursor-quill.svg") 3 29, pointer;
+  }
+  .redacted:hover {
+    background-color: transparent;
+    color: #1a1a1a;
+  }
+
+  .rubber-stamp__small {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
   }
 }

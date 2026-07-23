@@ -27,20 +27,29 @@ const offenses = [
   {
     charge: 'Grand Theft Architecture',
     record: 'R&D Intern | Hovernest Pvt Ltd | Feb 2026 - July 2026',
-    report:
-      'Collaborating on research, prototyping, validation, feasibility analysis, experimentation, and documentation for drone and emerging technology work.',
+    report: (
+      <>
+        Collaborating on research, prototyping, validation, feasibility analysis, experimentation, and documentation for <span className="redacted">drone and emerging technology</span> work.
+      </>
+    ),
   },
   {
     charge: 'Aggravated Perimeter Hardening',
     record: 'Project Intern | Larsen & Toubro Construction HQ | June 2025 - July 2025',
-    report:
-      'Developed workflow automations with Power Automate and Microsoft Copilot Studio, then automated SQL query scenarios using prompt engineering and basic RBAC.',
+    report: (
+      <>
+        Developed workflow automations with <span className="redacted">Power Automate</span> and <span className="redacted">Microsoft Copilot Studio</span>, then automated SQL query scenarios using prompt engineering and basic RBAC.
+      </>
+    ),
   },
   {
     charge: 'Unlicensed Interface Forgery',
     record: 'AI Intern | Edunet Foundation & Microsoft | May 2025 - June 2025',
-    report:
-      'Executed Azure ML workflows for preprocessing, model training, and prototype deployment while contributing to cloud-hosted application lifecycles.',
+    report: (
+      <>
+        Executed <span className="redacted">Azure ML workflows</span> for preprocessing, model training, and prototype deployment while contributing to cloud-hosted application lifecycles.
+      </>
+    ),
   },
 ]
 
@@ -49,24 +58,33 @@ const projects = [
     exhibit: 'Exhibit A',
     title: 'QuteMail',
     docket: 'SIH 2025 ISRO Finalist | Django, secure key management, QKD concepts',
-    summary:
-      'Quantum-key secure email client supporting IMAP and SMTP with ETSI-compliant encryption protocols.',
+    summary: (
+      <>
+        <span className="redacted">Quantum-key secure</span> email client supporting IMAP and SMTP with <span className="redacted">ETSI-compliant</span> encryption protocols.
+      </>
+    ),
     href: 'https://github.com/wolfieexd/QuteMail',
   },
   {
     exhibit: 'Exhibit B',
     title: 'Advanced Distributed Job Scheduling',
     docket: 'Python, FastAPI, Redis, PostgreSQL, React',
-    summary:
-      'Distributed job scheduler with Redis priority queues, asynchronous background workers, and real-time execution monitoring.',
+    summary: (
+      <>
+        Distributed job scheduler with <span className="redacted">Redis priority queues</span>, asynchronous background workers, and real-time execution monitoring.
+      </>
+    ),
     href: 'https://github.com/wolfieexd/Distributed-Job-Scheduler',
   },
   {
     exhibit: 'Exhibit C',
     title: 'SentinelIQ',
     docket: 'React, FastAPI, multi-agent orchestration, RAG',
-    summary:
-      'Autonomous security incident investigator with deterministic workflow orchestration, compliance guardrails, and local semantic retrieval.',
+    summary: (
+      <>
+        <span className="redacted">Autonomous security</span> incident investigator with deterministic workflow orchestration, compliance guardrails, and <span className="redacted">local semantic retrieval</span>.
+      </>
+    ),
     href: 'https://github.com/wolfieexd/SentinelIQ',
   },
 ]
@@ -83,7 +101,7 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.25 }}
-        className="mx-auto max-w-5xl border-t-[4px] border-double border-foreground px-1 py-10 md:border-t-[12px] md:px-4 md:py-16"
+        className="mx-auto max-w-5xl border-t-[4px] border-double border-foreground px-1 pt-10 pb-3 md:border-t-[12px] md:px-4 md:pt-16 md:pb-6"
       >
         <div className="broadsheet-divider mb-8 font-oswald text-2xl text-foreground md:text-4xl">
           *
@@ -216,7 +234,7 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
             <p className="mt-4 font-serif text-lg uppercase leading-relaxed md:text-2xl">
               Additional evidence is archived in the public GitHub vault.
             </p>
-            <p className="mt-5 inline-block border-b-[3px] border-dotted border-accent pb-1 font-mono text-sm font-bold uppercase text-accent md:text-lg">
+            <p className="seared-edge mt-5 inline-block border-b-[3px] border-dotted border-accent pb-1 px-1 font-mono text-sm font-bold uppercase text-accent md:text-lg md:px-2">
               View Evidence
             </p>
           </a>

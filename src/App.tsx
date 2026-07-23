@@ -17,6 +17,7 @@ const reveal = {
 
 export default function App() {
   const [telegraphStatus, setTelegraphStatus] = useState<'idle' | 'sending' | 'error'>('idle')
+  const [ticker, setTicker] = useState('Transmitting...')
   const successRedirect =
     typeof window === 'undefined' ? '/telegram-received.html' : `${window.location.origin}/telegram-received.html`
 
@@ -24,6 +25,14 @@ export default function App() {
     event.preventDefault()
     const form = event.currentTarget
     setTelegraphStatus('sending')
+    
+    let tickCount = 0;
+    const codes = ['. - . -', '- - . -', '. . . -', '- . - -', 'TRANSMITTING...'];
+    const interval = setInterval(() => {
+      setTicker(codes[tickCount % codes.length]);
+      tickCount++;
+    }, 250);
+
     const formData = new FormData(form)
     const name = String(formData.get('name') || '').trim()
     const email = String(formData.get('email') || '').trim()
@@ -55,40 +64,58 @@ export default function App() {
         'Portfolio Telegraph Dispatch',
       )}&body=${encodeURIComponent(fallbackBody)}`
       setTelegraphStatus('error')
+    } finally {
+      clearInterval(interval)
     }
   }
 
   return (
     <>
+      <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+          <filter id="woodblock-bleed">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="4" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+      <div className="paper-crease-overlay" />
       <TextureOverlay />
-      <main className="deckle paper-stains relative mx-auto my-2 min-h-screen w-[calc(100%-2rem)] max-w-[1180px] overflow-hidden border-[3px] border-double border-foreground bg-background px-2 py-2 text-center text-foreground shadow-[4px_4px_0_#1a1a1a] sm:px-4 md:my-6 md:border-[16px] md:px-7 md:py-6 md:shadow-[16px_16px_0_#1a1a1a] lg:px-10">
+      <main className="deckle paper-stains relative mx-auto min-h-screen w-[calc(100%-2rem)] max-w-[1180px] overflow-hidden border-x-[3px] border-t-[3px] border-b-0 border-double border-foreground bg-background px-2 py-2 text-center text-foreground shadow-[4px_4px_0_#1a1a1a] sm:px-4 md:border-x-[16px] md:border-t-[16px] md:border-b-0 md:px-7 md:py-6 md:shadow-[16px_16px_0_#1a1a1a] lg:px-10 pb-16 md:pb-24">
         <div className="pointer-events-none absolute inset-3 border border-foreground/35 md:inset-6" />
         <div className="pointer-events-none absolute inset-5 border-[3px] border-double border-foreground/65 md:inset-10 md:border-[6px]" />
 
         <div className="relative border-y-[3px] border-foreground py-2 md:border-y-[8px]">
           <div className="border-y-2 border-foreground py-4 md:py-7">
-            <section className="flex min-h-[82svh] flex-col items-center justify-center gap-4 md:gap-6">
+            <section className="flex min-h-[82svh] flex-col items-center justify-center gap-3 pb-3 pt-4 md:gap-4 md:pb-4 md:pt-8">
               <div className="ornament-rule font-mono text-xs font-bold uppercase md:text-base">
                 International Warrant Notice No. 404
               </div>
 
               <div className="wanted-cut h-8 w-full border-y-[3px] border-foreground opacity-85 md:h-14 md:border-y-[8px]" />
 
-              <h1 className="ink-bleed font-oswald text-[10.5vw] uppercase leading-[0.72] text-foreground sm:text-[21vw] lg:text-[15rem]">
-                <span className="block sm:inline">Most</span>
-                <span className="block sm:inline sm:ml-5">Wanted</span>
+              <h1
+                className="ink-bleed flex w-full flex-col items-center justify-center gap-2 py-6 text-foreground md:gap-4 font-oswald text-[16vw] uppercase leading-[0.75] tracking-tight md:text-[12.5rem] lg:text-[14.5rem]"
+                aria-label="Most Wanted"
+              >
+                <span className="block">MOST</span>
+                <span className="block">WANTED</span>
               </h1>
 
-              <div className="w-full border-y-[4px] border-double border-foreground px-2 py-4 md:border-y-[12px] md:px-8 md:py-6">
-                <p className="letterpress font-oswald text-5xl uppercase leading-none text-accent sm:text-7xl md:text-9xl">
+
+
+              <div className="relative w-full border-y-[4px] border-double border-foreground px-2 py-4 md:border-y-[12px] md:px-8 md:py-6">
+                <p className="ink-bleed font-oswald text-5xl uppercase leading-none text-accent sm:text-7xl md:text-9xl">
                   $50,000 Reward
                 </p>
                 <p className="mx-auto mt-3 max-w-[19rem] font-serif text-lg uppercase leading-tight sm:max-w-none sm:text-xl md:text-4xl">
                   For Information Leading to Arrest
                 </p>
+                <div className="absolute -bottom-10 right-2 z-20 hidden rotate-[-6deg] opacity-90 sm:block md:-bottom-14 md:right-10">
+                </div>
               </div>
 
-              <p className="mx-auto max-w-[18rem] border-y-[2px] border-dotted border-foreground py-3 font-serif text-sm uppercase leading-relaxed sm:max-w-4xl sm:text-base md:border-y-[6px] md:text-2xl">
+              <p className="mx-auto max-w-[18rem] border-y-[2px] border-dotted border-foreground py-3 text-center font-serif text-sm uppercase leading-relaxed sm:max-w-4xl sm:text-base md:border-y-[6px] md:text-2xl">
                 Suspect is known to craft interfaces, secure perimeters, and leave unusually legible source code at the scene.
               </p>
             </section>
@@ -108,7 +135,9 @@ export default function App() {
                 Dead Or Alive
               </h2>
 
-              <div className="mx-auto mt-8 w-full max-w-[310px] border-l-[7px] border-r-[4px] border-t-[4px] border-b-[8px] border-foreground bg-background p-2 shadow-[7px_7px_0_#1a1a1a] md:max-w-[430px] md:border-l-[18px] md:border-r-[8px] md:border-t-[8px] md:border-b-[20px] md:p-4 md:shadow-[18px_18px_0_#1a1a1a]">
+              <div className="relative mx-auto mt-8 w-full max-w-[310px] border-l-[7px] border-r-[4px] border-t-[4px] border-b-[8px] border-foreground bg-background p-2 shadow-[7px_7px_0_#1a1a1a] md:max-w-[430px] md:border-l-[18px] md:border-r-[8px] md:border-t-[8px] md:border-b-[20px] md:p-4 md:shadow-[18px_18px_0_#1a1a1a]">
+                <span className="pencil-mark absolute -left-4 top-10 -rotate-12 text-2xl md:-left-12 md:top-14 md:text-3xl">x 1.5</span>
+                <span className="pencil-mark absolute -right-2 bottom-10 rotate-12 text-3xl md:-right-6 md:bottom-16 md:text-5xl">✓</span>
                 <div className="relative border-[4px] border-foreground md:border-[8px]">
                   <img
                     src={mugshotUrl}
@@ -146,11 +175,11 @@ export default function App() {
               </div>
 
               <div className="flex items-center justify-center gap-3 px-2 md:gap-6">
-                <span className="font-oswald text-4xl leading-none md:text-6xl">*</span>
+                <span className="font-oswald text-[2.7rem] leading-none md:text-[5.4rem]">*</span>
                 <h2 className="ink-bleed max-w-[13ch] text-center font-oswald text-5xl uppercase leading-[0.92] md:max-w-none md:text-7xl lg:text-8xl">
                   Telegraph The Bureau
                 </h2>
-                <span className="font-oswald text-4xl leading-none md:text-6xl">*</span>
+                <span className="font-oswald text-[2.7rem] leading-none md:text-[5.4rem]">*</span>
               </div>
 
               <form onSubmit={handleTelegraphSubmit} className="printed-field mt-8 border-[3px] border-double border-foreground p-4 text-left shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]">
@@ -162,7 +191,7 @@ export default function App() {
 
                 <div className="mt-8 grid gap-8 font-serif md:grid-cols-2 md:gap-10">
                   <label className="block text-xl uppercase md:flex md:items-end md:gap-4 md:text-2xl">
-                    <span className="mb-2 block shrink-0 md:mb-0">Informant Name</span>
+                    <span className="typewriter-ink mb-2 block shrink-0 md:mb-0">Informant Name</span>
                     <input
                       name="name"
                       className="w-full border-0 border-b-[3px] border-dotted border-foreground bg-transparent px-1 py-2 font-mono text-xl uppercase text-foreground outline-none md:border-b-[4px] md:text-2xl"
@@ -172,7 +201,7 @@ export default function App() {
                   </label>
 
                   <label className="block text-xl uppercase md:flex md:items-end md:gap-4 md:text-2xl">
-                    <span className="mb-2 block shrink-0 md:mb-0">Return Telegraph</span>
+                    <span className="typewriter-ink mb-2 block shrink-0 md:mb-0">Return Telegraph</span>
                     <input
                       name="email"
                       type="email"
@@ -184,7 +213,7 @@ export default function App() {
                 </div>
 
                 <label className="mt-10 block font-serif text-xl uppercase md:text-2xl">
-                  <span className="mb-2 block">Message Contents</span>
+                  <span className="typewriter-ink mb-2 block">Message Contents</span>
                   <textarea
                     name="message"
                     rows={4}
@@ -200,19 +229,39 @@ export default function App() {
                     className="inline-flex items-center justify-center gap-3 bg-foreground px-6 py-4 font-oswald text-2xl uppercase text-background shadow-[6px_6px_0_#a52a2a] md:px-10 md:text-4xl"
                   >
                     <Send className="h-6 w-6 md:h-8 md:w-8" />
-                    {telegraphStatus === 'sending' ? 'Sending...' : 'Send Telegram'}
+                    {telegraphStatus === 'sending' ? ticker : 'Send Telegram'}
                   </button>
+                </div>
 
+                <div className="mx-auto mt-12 w-full max-w-3xl">
+                  <div className="broadsheet-divider mb-8 font-oswald text-2xl text-foreground md:text-4xl">
+                    *
+                  </div>
                   <div className="flex flex-wrap justify-center gap-4 font-mono text-sm font-bold uppercase md:text-base">
-                    <a className="inline-flex items-center gap-2 border-b-[3px] border-foreground" href="mailto:sujans1411@gmail.com">
+                    <a
+                      className="inline-flex items-center gap-2 border-b-[3px] border-foreground transition-colors hover:border-accent hover:text-accent"
+                      href="mailto:sujans1411@gmail.com"
+                    >
                       <Mail className="h-4 w-4" />
                       Mail
                     </a>
-                    <a className="inline-flex items-center gap-2 border-b-[3px] border-foreground" href="https://github.com/wolfieexd" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+                    <a
+                      className="inline-flex items-center gap-2 border-b-[3px] border-foreground transition-colors hover:border-accent hover:text-accent"
+                      href="https://github.com/wolfieexd"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="GitHub profile"
+                    >
                       <Github className="h-4 w-4" />
                       GitHub
                     </a>
-                    <a className="inline-flex items-center gap-2 border-b-[3px] border-foreground" href="https://www.linkedin.com/in/sujan05" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+                    <a
+                      className="inline-flex items-center gap-2 border-b-[3px] border-foreground transition-colors hover:border-accent hover:text-accent"
+                      href="https://www.linkedin.com/in/sujan05"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="LinkedIn profile"
+                    >
                       <Linkedin className="h-4 w-4" />
                       LinkedIn
                     </a>
