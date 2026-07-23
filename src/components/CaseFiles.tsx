@@ -107,11 +107,9 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
           *
         </div>
 
-        <div className="wanted-cut mb-8 flex items-center justify-center border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
-          <h2 className="ink-bleed bg-foreground px-2 py-1 font-oswald text-5xl uppercase leading-none md:text-8xl">
-            Known Arsenal
-          </h2>
-        </div>
+        <h2 className="ink-bleed ornament-rule mb-8 text-center font-oswald text-5xl uppercase leading-none md:text-8xl">
+          Known Arsenal
+        </h2>
 
         <p className="mx-auto max-w-4xl border-y-[2px] border-dotted border-foreground py-5 text-center font-oswald text-2xl uppercase leading-relaxed md:border-y-[6px] md:text-5xl">
           Armed with{' '}
@@ -135,11 +133,9 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
           *
         </div>
 
-        <div className="wanted-cut border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
-          <h2 className="ink-bleed bg-foreground px-2 py-1 font-oswald text-5xl uppercase leading-none md:text-8xl">
-            The Rap Sheet
-          </h2>
-        </div>
+        <h2 className="ink-bleed ornament-rule mb-8 text-center font-oswald text-5xl uppercase leading-none md:text-8xl">
+          The Rap Sheet
+        </h2>
 
         <div className="printed-field border-x-[3px] border-b-[3px] border-foreground px-3 py-2 text-left md:border-x-[8px] md:border-b-[8px] md:px-8">
           {offenses.map((offense, index) => {
@@ -183,11 +179,9 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
           *
         </div>
 
-        <div className="wanted-cut mb-8 flex items-center justify-center border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
-          <h2 className="ink-bleed bg-foreground px-2 py-1 font-oswald text-5xl uppercase leading-none md:text-8xl">
-            Confiscated Evidence
-          </h2>
-        </div>
+        <h2 className="ink-bleed ornament-rule mb-8 text-center font-oswald text-5xl uppercase leading-none md:text-8xl">
+          Confiscated Evidence
+        </h2>
 
         <div className="grid gap-8 text-left md:gap-10">
           {projects.map((project) => (

@@ -174,11 +174,9 @@ export default function App() {
                 *
               </div>
 
-              <div className="wanted-cut mb-8 flex items-center justify-center border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
-                <h2 className="ink-bleed max-w-[13ch] bg-foreground px-2 py-1 text-center font-oswald text-5xl uppercase leading-[0.92] md:max-w-none md:text-7xl lg:text-8xl">
-                  Telegraph The Bureau
-                </h2>
-              </div>
+              <h2 className="ink-bleed ornament-rule mx-auto max-w-[13ch] font-oswald text-5xl uppercase leading-[0.92] md:max-w-none md:text-7xl lg:text-8xl">
+                Telegraph The Bureau
+              </h2>
 
               <form onSubmit={handleTelegraphSubmit} className="printed-field mt-8 border-[3px] border-double border-foreground p-4 text-left shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]">
                 <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
