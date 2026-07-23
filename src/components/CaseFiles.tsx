@@ -167,8 +167,7 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
           *
         </div>
 
-        <div className="wanted-cut mb-8 flex items-center justify-center gap-3 border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
-          <span className="bg-foreground px-2 font-oswald text-4xl leading-none md:text-6xl">◆</span>
+        <div className="wanted-cut mb-8 flex items-center justify-center border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
           <h2 className="ink-bleed bg-foreground px-2 py-1 font-oswald text-5xl uppercase leading-none md:text-8xl">
             Confiscated Evidence
           </h2>
@@ -181,7 +180,7 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="printed-field relative border-[3px] border-double border-foreground bg-background p-4 pt-12 shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:pt-16 md:shadow-[16px_16px_0_#1a1a1a]"
+              className="printed-field group relative border-[3px] border-double border-foreground bg-background p-4 pt-12 shadow-[6px_6px_0_#1a1a1a] transition-transform duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 md:border-[8px] md:p-8 md:pt-16 md:shadow-[16px_16px_0_#1a1a1a]"
             >
               <div className="absolute right-0 top-0 bg-foreground px-3 py-2 font-mono text-sm font-bold uppercase text-background md:px-5 md:py-3 md:text-xl">
                 {project.exhibit}
@@ -199,6 +198,9 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
               <p className="mt-4 font-serif text-lg uppercase leading-relaxed md:text-2xl">
                 {project.summary}
               </p>
+              <p className="mt-5 inline-block border-b-[3px] border-dotted border-accent pb-1 font-mono text-sm font-bold uppercase text-accent md:text-lg">
+                View Evidence
+              </p>
             </a>
           ))}
 
@@ -206,13 +208,16 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
             href="https://github.com/wolfieexd"
             target="_blank"
             rel="noreferrer"
-            className="block border-[3px] border-dotted border-foreground bg-background p-5 text-center shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]"
+            className="group block border-[3px] border-dotted border-foreground bg-background p-5 text-center shadow-[6px_6px_0_#1a1a1a] transition-transform duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]"
           >
             <p className="font-oswald text-4xl uppercase leading-none text-accent md:text-6xl">
               And Many More
             </p>
             <p className="mt-4 font-serif text-lg uppercase leading-relaxed md:text-2xl">
               Additional evidence is archived in the public GitHub vault.
+            </p>
+            <p className="mt-5 inline-block border-b-[3px] border-dotted border-accent pb-1 font-mono text-sm font-bold uppercase text-accent md:text-lg">
+              View Evidence
             </p>
           </a>
         </div>

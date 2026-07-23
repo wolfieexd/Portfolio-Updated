@@ -19,6 +19,7 @@
       radial-gradient(circle at center, rgba(230, 223, 204, 0.95), rgba(89, 58, 26, 0.42) 120%),
       #9b865f;
     color: #1a1a1a;
+    cursor: url("/cursor-quill.svg") 3 29, auto;
   }
 
   ::selection {
@@ -27,10 +28,14 @@
   }
 
   input,
-  textarea,
+  textarea {
+    cursor: text;
+  }
+
   button,
   a {
     border-radius: 0;
+    cursor: url("/cursor-stamp.svg") 14 14, pointer;
   }
 
   input:-webkit-autofill,

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Send } from 'lucide-react'
+import { useState, type FormEvent } from 'react'
 import CaseFiles from './components/CaseFiles'
 import TextureOverlay from './components/TextureOverlay'
 
@@ -15,10 +16,52 @@ const reveal = {
 }
 
 export default function App() {
+  const [telegraphStatus, setTelegraphStatus] = useState<'idle' | 'sending' | 'error'>('idle')
+  const successRedirect =
+    typeof window === 'undefined' ? '/telegram-received.html' : `${window.location.origin}/telegram-received.html`
+
+  const handleTelegraphSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    setTelegraphStatus('sending')
+    const formData = new FormData(form)
+    const name = String(formData.get('name') || '').trim()
+    const email = String(formData.get('email') || '').trim()
+    const message = String(formData.get('message') || '').trim()
+    const fallbackBody = [
+      `Informant Name: ${name || 'Not provided'}`,
+      `Return Telegraph: ${email || 'Not provided'}`,
+      '',
+      message || 'No message contents provided.',
+    ].join('\n')
+
+    try {
+      formData.append('access_key', 'c7633e56-8f24-4d1a-8777-b42416432c91')
+      formData.append('subject', 'Portfolio Telegraph Dispatch')
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const result = await response.json().catch(() => null)
+
+      if (!response.ok || result?.success !== true) {
+        throw new Error('Web3Forms submission failed')
+      }
+
+      window.location.assign(successRedirect)
+    } catch {
+      window.location.href = `mailto:sujans1411@gmail.com?subject=${encodeURIComponent(
+        'Portfolio Telegraph Dispatch',
+      )}&body=${encodeURIComponent(fallbackBody)}`
+      setTelegraphStatus('error')
+    }
+  }
+
   return (
     <>
       <TextureOverlay />
-      <main className="deckle paper-stains relative mx-auto my-2 min-h-screen w-[calc(100%-1rem)] max-w-[1180px] overflow-hidden border-[3px] border-double border-foreground bg-background px-2 py-2 text-center text-foreground shadow-[5px_5px_0_#1a1a1a] sm:w-[calc(100%-2rem)] sm:px-4 md:my-6 md:border-[16px] md:px-7 md:py-6 md:shadow-[16px_16px_0_#1a1a1a] lg:px-10">
+      <main className="deckle paper-stains relative mx-auto my-2 min-h-screen w-[calc(100%-2rem)] max-w-[1180px] overflow-hidden border-[3px] border-double border-foreground bg-background px-2 py-2 text-center text-foreground shadow-[4px_4px_0_#1a1a1a] sm:px-4 md:my-6 md:border-[16px] md:px-7 md:py-6 md:shadow-[16px_16px_0_#1a1a1a] lg:px-10">
         <div className="pointer-events-none absolute inset-3 border border-foreground/35 md:inset-6" />
         <div className="pointer-events-none absolute inset-5 border-[3px] border-double border-foreground/65 md:inset-10 md:border-[6px]" />
 
@@ -31,20 +74,21 @@ export default function App() {
 
               <div className="wanted-cut h-8 w-full border-y-[3px] border-foreground opacity-85 md:h-14 md:border-y-[8px]" />
 
-              <h1 className="ink-bleed font-oswald text-[22vw] uppercase leading-[0.72] text-foreground sm:text-[21vw] lg:text-[15rem]">
-                Most Wanted
+              <h1 className="ink-bleed font-oswald text-[10.5vw] uppercase leading-[0.72] text-foreground sm:text-[21vw] lg:text-[15rem]">
+                <span className="block sm:inline">Most</span>
+                <span className="block sm:inline sm:ml-5">Wanted</span>
               </h1>
 
               <div className="w-full border-y-[4px] border-double border-foreground px-2 py-4 md:border-y-[12px] md:px-8 md:py-6">
                 <p className="letterpress font-oswald text-5xl uppercase leading-none text-accent sm:text-7xl md:text-9xl">
                   $50,000 Reward
                 </p>
-                <p className="mt-3 font-serif text-xl uppercase leading-tight md:text-4xl">
+                <p className="mx-auto mt-3 max-w-[19rem] font-serif text-lg uppercase leading-tight sm:max-w-none sm:text-xl md:text-4xl">
                   For Information Leading to Arrest
                 </p>
               </div>
 
-              <p className="max-w-4xl border-y-[2px] border-dotted border-foreground py-3 font-serif text-base uppercase leading-relaxed md:border-y-[6px] md:text-2xl">
+              <p className="mx-auto max-w-[18rem] border-y-[2px] border-dotted border-foreground py-3 font-serif text-sm uppercase leading-relaxed sm:max-w-4xl sm:text-base md:border-y-[6px] md:text-2xl">
                 Suspect is known to craft interfaces, secure perimeters, and leave unusually legible source code at the scene.
               </p>
             </section>
@@ -101,14 +145,15 @@ export default function App() {
                 *
               </div>
 
-              <h2 className="ink-bleed ornament-rule font-oswald text-5xl uppercase leading-none md:text-8xl">
-                Telegraph The Bureau
-              </h2>
+              <div className="flex items-center justify-center gap-3 px-2 md:gap-6">
+                <span className="font-oswald text-4xl leading-none md:text-6xl">*</span>
+                <h2 className="ink-bleed max-w-[13ch] text-center font-oswald text-5xl uppercase leading-[0.92] md:max-w-none md:text-7xl lg:text-8xl">
+                  Telegraph The Bureau
+                </h2>
+                <span className="font-oswald text-4xl leading-none md:text-6xl">*</span>
+              </div>
 
-              <form action="https://splitforms.com/api/submit" method="POST" className="printed-field mt-8 border-[3px] border-double border-foreground p-4 text-left shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]">
-                <input type="hidden" name="access_key" value="cf6a09cc385a4503bc02ed354b89b058" />
-                <input type="hidden" name="form-name" value="portfolio-telegraph" />
-                <input type="hidden" name="form_loaded_at" value={Date.now()} />
+              <form onSubmit={handleTelegraphSubmit} className="printed-field mt-8 border-[3px] border-double border-foreground p-4 text-left shadow-[6px_6px_0_#1a1a1a] md:border-[8px] md:p-8 md:shadow-[16px_16px_0_#1a1a1a]">
                 <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} aria-hidden="true" />
 
                 <div className="border-b-[3px] border-double border-foreground pb-4 text-center font-mono text-sm font-bold uppercase md:border-b-[8px] md:text-xl">
@@ -151,10 +196,11 @@ export default function App() {
                 <div className="mt-10 flex flex-col items-center gap-5 border-t-[3px] border-dotted border-foreground pt-6 md:flex-row md:justify-between md:border-t-[6px]">
                   <button
                     type="submit"
+                    disabled={telegraphStatus === 'sending'}
                     className="inline-flex items-center justify-center gap-3 bg-foreground px-6 py-4 font-oswald text-2xl uppercase text-background shadow-[6px_6px_0_#a52a2a] md:px-10 md:text-4xl"
                   >
                     <Send className="h-6 w-6 md:h-8 md:w-8" />
-                    Send Telegram
+                    {telegraphStatus === 'sending' ? 'Sending...' : 'Send Telegram'}
                   </button>
 
                   <div className="flex flex-wrap justify-center gap-4 font-mono text-sm font-bold uppercase md:text-base">
@@ -172,6 +218,11 @@ export default function App() {
                     </a>
                   </div>
                 </div>
+                {telegraphStatus === 'error' ? (
+                  <p className="mt-6 border-y-[3px] border-dotted border-accent py-3 text-center font-mono text-sm font-bold uppercase text-accent md:text-base">
+                    Dispatch failed in this browser. Please use the mail link.
+                  </p>
+                ) : null}
               </form>
             </motion.section>
           </div>
