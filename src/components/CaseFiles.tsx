@@ -107,12 +107,10 @@ export default function CaseFiles({ reveal }: CaseFilesProps) {
           *
         </div>
 
-        <div className="mb-6 flex items-center justify-center gap-3 border-y-[3px] border-double border-foreground py-3 md:border-y-[8px]">
-          <span className="font-oswald text-4xl leading-none md:text-6xl">◆</span>
-          <h2 className="ink-bleed font-oswald text-5xl uppercase leading-none md:text-8xl">
+        <div className="wanted-cut mb-8 flex items-center justify-center border-y-[3px] border-foreground px-2 py-4 text-background md:border-y-[8px] md:py-6">
+          <h2 className="ink-bleed bg-foreground px-2 py-1 font-oswald text-5xl uppercase leading-none md:text-8xl">
             Known Arsenal
           </h2>
-          <span className="font-oswald text-4xl leading-none md:text-6xl">◆</span>
         </div>
 
         <p className="mx-auto max-w-4xl border-y-[2px] border-dotted border-foreground py-5 text-center font-oswald text-2xl uppercase leading-relaxed md:border-y-[6px] md:text-5xl">
