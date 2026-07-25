@@ -131,9 +131,13 @@ export default function App() {
                 *
               </div>
 
-              <h2 className="ink-bleed ornament-rule font-oswald text-5xl uppercase leading-none md:text-8xl">
-                Dead Or Alive
-              </h2>
+              <div className="flex items-center justify-center gap-3 px-2 md:gap-6">
+                <span className="ink-bleed font-oswald text-[2.7rem] leading-none md:text-[5.4rem]">*</span>
+                <h2 className="ink-bleed text-center font-oswald text-5xl uppercase leading-[0.92] md:text-7xl lg:text-8xl">
+                  Dead Or Alive
+                </h2>
+                <span className="ink-bleed font-oswald text-[2.7rem] leading-none md:text-[5.4rem]">*</span>
+              </div>
 
               <div className="relative mx-auto mt-8 w-full max-w-[310px] border-l-[7px] border-r-[4px] border-t-[4px] border-b-[8px] border-foreground bg-background p-2 shadow-[7px_7px_0_#1a1a1a] md:max-w-[430px] md:border-l-[18px] md:border-r-[8px] md:border-t-[8px] md:border-b-[20px] md:p-4 md:shadow-[18px_18px_0_#1a1a1a]">
                 <span className="pencil-mark absolute -left-4 top-10 -rotate-12 text-2xl md:-left-12 md:top-14 md:text-3xl">x 1.5</span>
